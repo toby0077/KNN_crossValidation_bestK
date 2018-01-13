@@ -2,7 +2,10 @@
 """
 Created on Sun Jan  7 23:13:36 2018
 
-@author: Administrator
+@author: Toby webchat:drug666123,QQ:231469242
+
+KNN cross validation, choose best k
+KNN交叉验证，调参，选择最佳K值和对应最高概率
 """
 import matplotlib.pyplot as plt
 import numpy as np
