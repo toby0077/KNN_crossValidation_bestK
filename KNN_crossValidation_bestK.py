@@ -45,7 +45,7 @@ k_range=range(1,31)
 k_score=[]
 for k in k_range:
     knn = KNeighborsClassifier(n_neighbors=k)
-    score_knn=cross_val_score(knn,x,y,cv=5,scoring='accuracy')
+    score_knn=cross_val_score(knn,x,y,cv=10,scoring='accuracy')
     #添加平均值
     k_score.append(score_knn.mean())
     
@@ -58,11 +58,15 @@ plt.xlabel("K value of KNN ")
 plt.ylabel("Cross-validated accuracy")
 plt.show()
 
+#最佳K值列表
+#best_k=[]
+dict_K_score=dict(zip(k_range,k_score))
+#利用lambda找最值选项
+max_item=max(dict_K_score.items(), key=lambda x: x[1]) 
+best_k=max_item[0]
+max_proprobility=max_item[1]
 
-dict_K_score=dict(zip(k_score,k_range))
-max_proprobility=max(dict_K_score)
-best_K=dict_K_score[max_proprobility]
-print("best K is:",best_K)
+print("best K is:",best_k)
 print("max_proprobility is:",max_proprobility)
 
 
